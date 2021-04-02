@@ -1,0 +1,101 @@
+@import 'assets/color.scss';
+
+$tamaños: 100px, 175px, 250px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+@mixin flex{
+    display:flex;
+    flex-direction: row;
+}
+
+@each $tamaño in $tamaños{
+    .caja-#{$tamaño} {
+        height: $tamaño;
+        width: $tamaño;
+    }
+}
+
+body{
+    @include flex;
+    flex-wrap: wrap;
+    background-color: $fondo-body;
+    header{
+        height: 5vh;
+        width: 100vw;
+        @include flex;
+        justify-content: space-between;
+        align-items: center;
+        nav{
+            @include flex;
+            align-items: center;
+            justify-content: space-evenly;
+            ul{
+                @include flex;
+                justify-content: space-between;
+                padding: 2px;
+                align-items: center;
+                li{ 
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    list-style: none;
+                    padding: 5px;
+                    margin: 0 5px;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: $fondo-hover;
+                    }
+                }
+            }
+            
+            
+        }
+    }
+    main{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 90vh;
+        width: 100vw;
+        section{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 5px;
+            height: 45vh;
+            width: 45vw;
+            div.tarjeta{
+                background-color: rgb(190, 190, 190);
+                border-radius: 15px;
+                height: 90%;
+                width: 90%;
+                align-items: center;
+                align-content: center;
+                padding: 15px;
+                img.tarjeta__img{
+                    width: 250px;
+                    height: 150px;
+                }
+            ul{
+                list-style: none;
+                }
+            }
+        }
+    }
+    footer{
+        background-color:burlywood;
+        color: black;
+        height: 5vh;
+        width: 100vw;
+    }
+}
